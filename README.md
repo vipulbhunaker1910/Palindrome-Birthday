@@ -9,4 +9,6 @@ DD/MM/YY
 MM/DD/YY
 YY/MM/DD
 
-If your date doesnot satisfies any of the format then website display the next possible date and provides the number of days in between
+If your date doesnot satisfies any of the format then website display the next possible date and provides the number of days in between.
+
+Technology Used: HTML, CSS, Vanilla-JS
