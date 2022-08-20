@@ -8,7 +8,6 @@ function  IsreverseStringPalindrome(dateStr)
     var allChars = dateStr.split('');
     var reverseAllChars = allChars.reverse();
     var reversedString = reverseAllChars.join('');
-
     return  reversedString===dateStr;
 
 }
@@ -150,6 +149,20 @@ function  leapYear(year)
         day:day, month:month,year:year
     };
  }
+ function getpreviouspalindromeocc(date){
+    var count2=0;
+    var previousDate=getPreviousDate(date);
+    while(1){
+        count2++;
+        var isPalindrome =isPosibilitiesPalindrome(previousDate); ;
+        if(isPalindrome){
+          break;
+        }
+        previousDate = getPreviousDate(previousDate);
+      }
+      return [count2, previousDate];
+}
+
 function  getNextPalindromeOccurance(date){
     var count = 0;
     var nextDate = getNextDate(date);
@@ -164,19 +177,7 @@ function  getNextPalindromeOccurance(date){
     
     return [count, nextDate];
   }
-function getpreviouspalindromeocc(date){
-    var count2=0;
-    var previousDate=getPreviousDate(date);
-    while(1){
-        count2++;
-        var isPalindrome =isPosibilitiesPalindrome(previousDate); ;
-        if(isPalindrome){
-          break;
-        }
-        previousDate = getPreviousDate(previousDate);
-      }
-      return [count2, previousDate];
-}
+
 function  checkpalindrome(){
 var bdaydate = dateInput.value;
   if(bdaydate!== '')
@@ -199,16 +200,17 @@ var bdaydate = dateInput.value;
         }
     else{
          var [count,nextDate] = getNextPalindromeOccurance(date);
-         var [count2,previousDate]=getpreviouspalindromeocc(date);
-         if(count<count2){
-         outPut.innerText= "The nearest palindrome is at"+ nextDate.day+"-"+
+        // var [count2,previousDate]=getpreviouspalindromeocc(date);
+         //if(count<count2){
+         outPut.innerText= "The nearest palindrome is at "+ nextDate.day+"-"+
          nextDate.month+"-"+nextDate.year+",oh! u missed palindrome by "+count+" days!";
-         }
+         /*}
          else{
             
-            outPut.innerText= "The nearest palindrome was at"+ previousDate.day+"-"+
+            outPut.innerText= "The nearest palindrome was at "+ previousDate.day+"-"+
             previousDate.month+"-"+previousDate.year+",oh! u missed palindrome by "+count2+" days!";
-         }
+         }*/
+         
     
         } 
 
